@@ -39,7 +39,7 @@ function runQuery() {
       
       // Put the received data in a let named results
       let results = json.results.bindings;
-      
+      console.log(results);
       console.log(formatData("mainWapens", results))
       })
   
