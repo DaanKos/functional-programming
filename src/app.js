@@ -1,37 +1,35 @@
 import formatData from "./utils/formatData";
+import queryCollection from "./utils/queryCollection";
 
-function runQuery() {
+const popularcultureTermMasterId = 10045782;
+const jachtvisserijvoedselgaringTermMasterId = 2803;
+const wapenTermMasterId = 2091;
+const landtuinenbosbouwTermMasterId = 2819;
+const veeteeltenproductenTermMasterId = 1843;
+const voedingdrankgenotmiddelenTermMasterId = 2839;
+const kledingenpersoonlijkeversieringTermMasterId = 2704;
+const lichaamsverzorginggeneeskundepersoonlijkcomfortTermMasterId = 2718;
+const vestigingTermMasterId = 2726;
+const nijverheidhandelendienstverleningTermMasterId = 2754;
+const vervoerTermMasterId = 2624;
+const communicatieTermMasterId = 2634;
+const sociaalpolitiekjuridischTermMasterId = 2642;
+const levenscyclusTermMasterId = 2649;
+const religieenritueelTermMasterId = 2652;
+const kunstTermMasterId = 2657;
+const ontspanningsportenspelTermMasterId = 2676;
+const onbepaaldTermMasterId = 1834;
+const strijdenoorlogTermMasterId = 16239;
+
+function runQuery(mainCategory, termMasterId) {
     // The following piece of code was written by user Razpudding (Laurens), from https://codepen.io/Razpudding/pen/LKMbwZ
     // I have edited the code to fit my needs and use my own endpoint
     //Github CMDA
     const url ="https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-17/sparql"
 
     //Note that the query is wrapped in es6 template strings to allow for easy copy pasting
-    const query = `
-    #+ summary: Wapens query - haalt alle aantallen van de wapens subcategorieen op per land
-    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX gn: <http://www.geonames.org/ontology#>
-    PREFIX dc: <http://purl.org/dc/elements/1.1/>
-    PREFIX dct: <http://purl.org/dc/terms/>
-    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-    PREFIX edm: <http://www.europeana.eu/schemas/edm/>
-    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-    # tel aantallen per land
-    SELECT ?subcategorie ?subcategorieLabel ?landLabel (COUNT(?cho) AS ?choCount) WHERE {
-    # haal van een term in de thesaurus de subcategorieen op
-    <https://hdl.handle.net/20.500.11840/termmaster2091> skos:narrower* ?subcategorie .
-    # haal de objecten van deze subcategorieen en de plaats
-    ?cho edm:isRelatedTo ?subcategorie .
-    ?cho dct:spatial ?plaats .
-    ?subcategorie skos:prefLabel ?subcategorieLabel .
-    # haal het landLabel op van de plaats
-    ?plaats skos:exactMatch/gn:parentCountry ?land .
-    ?land gn:name ?landLabel .
-    }
-    GROUP BY ?subcategorie ?landLabel ?subcategorieLabel
-    ORDER BY DESC(?choCount)
-    LIMIT 1000
-    `
+    const query = queryCollection(termMasterId);
+
       // Call the url with the query attached, output data
       fetch(url+"?query="+ encodeURIComponent(query) +"&format=json")
       .then(res => res.json())
@@ -39,11 +37,28 @@ function runQuery() {
       
       // Put the received data in a let named results
       let results = json.results.bindings;
-      console.log(results);
-      console.log(formatData("mainWapens", results))
+      console.log("Following array is based on: ", mainCategory);
+      console.log(formatData(mainCategory, results))
       })
   
 }
 
-runQuery();
-
+runQuery("mainPopularCulture", popularcultureTermMasterId);
+runQuery("mainJachtVisserijVoedselgaring", jachtvisserijvoedselgaringTermMasterId);
+runQuery("mainWapens", wapenTermMasterId);
+runQuery("mainLandTuinEnBosbouw", landtuinenbosbouwTermMasterId);
+runQuery("mainVeeteeltEnProducten", veeteeltenproductenTermMasterId);
+runQuery("mainVoedingDrankGenotmiddelen", voedingdrankgenotmiddelenTermMasterId);
+runQuery("mainKledingEnPersoonlijkeversiering", kledingenpersoonlijkeversieringTermMasterId);
+runQuery("mainLichaamsVerzorgingGeneeskundePersoonlijkcomfort", lichaamsverzorginggeneeskundepersoonlijkcomfortTermMasterId);
+runQuery("mainVestiging", vestigingTermMasterId);
+runQuery("mainNijverheidHandelEnDienstverlening", nijverheidhandelendienstverleningTermMasterId);
+runQuery("mainVervoer", vervoerTermMasterId);
+runQuery("mainCommunicatie", communicatieTermMasterId);
+runQuery("mainSociaalPolitiekJuridisch", sociaalpolitiekjuridischTermMasterId);
+runQuery("mainLevenscyclus", levenscyclusTermMasterId);
+runQuery("mainReligieEnRitueel", religieenritueelTermMasterId);
+runQuery("mainKunst", kunstTermMasterId);
+runQuery("mainOntspanningSportEnSpel", ontspanningsportenspelTermMasterId);
+runQuery("mainOnbepaald", onbepaaldTermMasterId);
+runQuery("mainStrijdEnOorlog", strijdenoorlogTermMasterId);
