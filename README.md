@@ -3,7 +3,7 @@
 
 Dit is mijn repository voor het vak Functional-Programming. Ik heb dit vak gevolgd van 4-11-2019 t/m 15-11-2019. Het vak is een onderdeel van de tech-track van Information Design in jaar 3 van CMD aan de HvA.
 
-![](https://i.imgur.com/SQ8ccKy.png)
+![Aangepast conceptvoorbeeld](https://i.imgur.com/BmB3guS.png)
 
 ## Inhoud
 * [Link naar de applicatie](#link-naar-de-applicatie)
@@ -74,27 +74,18 @@ Als ik nog actief aan dit project werk is het slim om af en toe een ```git pull`
 - [ ] Het opschonen van opgehaalde data
 
 ## Introductie
-Voor het vak Frontend-Applications heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
+Voor het vak Functional Programming heb ik de opdracht gekregen om aan de slag te gaan met de database van het NMVW (Nationaal Musea van Wereldkunde).
 
 Het NMVW heeft een ontzettend grote collectie, en maar een deel hiervan wordt tentoongesteld in de musea die bij het NMVW horen. 
 Deze grote collectie is online te bekijken, maar hier komen maar weinig mensen op af.
 
-Ook is deze collectie moeilijk om te ontdekken, het is vooral gericht op mensen die weten wat ze willen bekijken.
-
-Aan mij de taak om met deze collectie aan de slag te gaan en het aantrekkelijk(er) te maken om de website van de collectie te bezoeken.
+Aan mij de taak om de data die in de database beschikbaar is te verwerken in een datavisualisatie die mensen dichter bij de collectie kan brengen op een informatieve en overzichtelijke manier.
 
 ## Doelgroep
-In mijn uitwerking van deze opdracht heb ik mij gericht op een jonge doelgroep, kinderen tussen de 8 en 14 jaar, maar het concept is ook leuk voor personen die buiten deze groep vallen.
-
-Ik heb voor deze doelgroep gekozen omdat ik denk dat er weinig tot geen mensen uit deze doelgroep de huidige site van de collectie van het NMVW bezoeken. Er valt dus veel te winnen binnen deze doelgroep.
-
-Toen ik de opdracht voor het eerst hoorde, dacht ik al snel aan gamification. Gamification is een goede en leuke manier om minder interessante data toch leuk te maken. Het ontdekken van de collectie terwijl je een spelletje speelt lijkt mij ideaal, vooral voor kinderen.
+Op het moment van schrijven is mijn concept ontwikkeld zonder dat ik hierbij een heel duidelijke doelgroep in mijn achterhoofd had. Cindy, de opdrachtgever, vond het concept vooral passend voor een online omgeving. In mijn concept moet de gebruiker vaak inzoomen op een wereldkaart om zo de informatie van de kleinere landen te bekijken, dit leent zich dus niet zo goed voor een platform waar geen interactie mogelijk is. Vandaar dat mijn huidige doelgroep de website bezoeker is.
 
 ## Features
-* Ontdek de collectie van het NMVW op een speelse manier
-* Speel het "Welk object is ouder?" spel: kies het object waarvan jij denkt dat hij ouder is dan de ander
-* Houd je score bij
-* Verbeter je eigen high score
+* Ontdek welke categorie het vaakst voorkomt in ieder land en kom er achter wat er speelt/speelde in ieder land
 
 ## Gebruikte data
 In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen. Meer hierover in de wiki onder [SPARQL query](https://github.com/DaanKos/functional-programming/wiki/SPARQL-query).
