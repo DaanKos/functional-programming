@@ -1,5 +1,4 @@
-console.log('works')
-console.log('test')
+import formatData from "./utils/formatData";
 
 function runQuery() {
     // The following piece of code was written by user Razpudding (Laurens), from https://codepen.io/Razpudding/pen/LKMbwZ
@@ -41,64 +40,10 @@ function runQuery() {
       // Put the received data in a let named results
       let results = json.results.bindings;
       
-      let addedMainCategory = results.map(function(currentObject) {
-        currentObject.mainCategory = "mainWapens";
-          return currentObject
-      })
-
-      let temporaryArray = [];
-
-      let combineValuesPerCountry = addedMainCategory.map(function(currentObject) {
-        if (temporaryArray.includes(currentObject.landLabel.value)){
-            console.log("Already in array")
-          } else {
-            temporaryArray.push(currentObject.landLabel.value);
-          }
-      })
-
-      console.log(addedMainCategory);
-      console.log(combineValuesPerCountry);
-
-    //   // Create an empty array, the final filtered data will be pushed to this array
-    //   let itemArray = [];
-      
-    //   // The following piece of code was inspired by Giovanni Kaaijk, from https://github.com/GiovanniKaaijk/frontend-applications/blob/master/my-app/src/App.js
-    //   // I have edited the code to fit my needs
-    //   // It loops through the received data and pushes their "date" property to an empty array
-    //   // If the item in the current loop cycle has a "date" property that's already in the previously mentioned array, the item gets deleted
-    //   let unique = [];
-    //   for(let i=0; i<results.length; i++){
-    //     if(unique.includes(results[i].date.value)) {
-    //       console.log("Will delete item from array - duplicate date");  
-    //       results.splice([i], 1);
-    //     } else {
-    //         unique.push(results[i].date.value);
-    //     }
-    //   }
-
-    //   // This loops through all remaining results and deletes the items from which the image url matches with the copyrightPic url
-    //   for(let i=0; i<results.length; i++){
-    //       if((results[i].pic.value) === copyrightPic) {
-    //           results.splice([i], 1)
-    //           console.log("Deleted item from array - Copyright image");
-    //       }
-    //   }
-
-    //   // The following piece of code was inspired by Kyle Bot, from https://github.com/kylebot0/frontend-applications/blob/master/client/src/app.js
-    //   // This code pushes all remaining results to the itemArray but randomizes the order
-    //   // This needs to be done so the items shown to the user will be randomized
-    //   for(let i=0; i < results.length; i++){
-    //       var item = results[Math.floor(Math.random() * results.length)];
-    //       itemArray.push(item);
-    //   }
-
-    //   // The items in the itemArray get pushed to the "objects" array in state
-    //   this.setState({ objects: itemArray })
-
-    //   // Fires pushNextObjects funtion
-    //   this.pushNextObjects();
+      console.log(formatData("mainWapens", results))
       })
   
 }
 
 runQuery();
+
