@@ -8,8 +8,9 @@ export default function(termMasterId) {
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         PREFIX edm: <http://www.europeana.eu/schemas/edm/>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+        PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
         # tel aantallen per land
-        SELECT ?subcategorie ?subcategorieLabel ?land ?landLabel (COUNT(?cho) AS ?choCount) WHERE {
+        SELECT ?subcategorie ?subcategorieLabel ?lat ?long ?land ?landLabel (COUNT(?cho) AS ?choCount) WHERE {
         # haal van een term in de thesaurus de subcategorieen op
         <https://hdl.handle.net/20.500.11840/termmaster${termMasterId}> skos:narrower* ?subcategorie .
         # haal de objecten van deze subcategorieen en de plaats
@@ -18,9 +19,11 @@ export default function(termMasterId) {
         ?subcategorie skos:prefLabel ?subcategorieLabel .
         # haal het landLabel op van de plaats
         ?plaats skos:exactMatch/gn:parentCountry ?land .
+        ?land wgs84:lat ?lat .
+        ?land wgs84:long ?long .
         ?land gn:name ?landLabel .
         }
-        GROUP BY ?land ?subcategorie ?landLabel ?subcategorieLabel
+        GROUP BY ?lat ?long ?land ?subcategorie ?landLabel ?subcategorieLabel
         ORDER BY DESC(?choCount)
         LIMIT 1000
         `
