@@ -45,6 +45,7 @@ function combineArrays() {
 
 function createFinalArray() {
   combineArrays().then(result => {
+    console.log(result);
     let compared = compareArrays(result);
     console.log(compared);
   })
