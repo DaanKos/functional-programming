@@ -1,14 +1,6 @@
-export default function(mainCategory, results) {
+export default function(results) {
     return results
-        .map(result => {
-            return {
-                mainCategory,
-                subCategory: result.subcategorieLabel.value,
-                countryLabel: result.landLabel.value,
-                countryGeo: result.land.value,
-                objectCount: Number(result.choCount.value)
-            }
-        }).reduce((newItems, currentItem) => {
+        .reduce((newItems, currentItem) => {
             // Is there an item that has a country property that's equal to the current item country property?
             const foundItem = newItems.find(item => item.country === currentItem.countryLabel)
 
@@ -18,14 +10,16 @@ export default function(mainCategory, results) {
                     country: currentItem.countryLabel,
                     countryGeo: currentItem.countryGeo,
                     mainCategory: currentItem.mainCategory,
-                    objectCountTotal: currentItem.objectCount
+                    objectCount: currentItem.objectCount
                 }
 
                 // Push the new item to the newItems array
                 newItems.push(newItem)
-            } else {
-                // If the country does exist in the new item array, add current item objectCount to objectCountTotal of that item
-                foundItem.objectCountTotal = foundItem.objectCountTotal + currentItem.objectCount
+            } else if (foundItem.objectCount < currentItem.objectCount) {
+                foundItem.country = currentItem.countryLabel,
+                foundItem.countryGeo = currentItem.countryGeo,
+                foundItem.mainCategory = currentItem.mainCategory,
+                foundItem.objectCount = currentItem.objectCount
             }
 
             // Return newItems array

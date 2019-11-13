@@ -9,7 +9,7 @@ export default function(termMasterId) {
         PREFIX edm: <http://www.europeana.eu/schemas/edm/>
         PREFIX foaf: <http://xmlns.com/foaf/0.1/>
         # tel aantallen per land
-        SELECT ?subcategorie ?subcategorieLabel ?landLabel (COUNT(?cho) AS ?choCount) WHERE {
+        SELECT ?subcategorie ?subcategorieLabel ?land ?landLabel (COUNT(?cho) AS ?choCount) WHERE {
         # haal van een term in de thesaurus de subcategorieen op
         <https://hdl.handle.net/20.500.11840/termmaster${termMasterId}> skos:narrower* ?subcategorie .
         # haal de objecten van deze subcategorieen en de plaats
@@ -20,7 +20,7 @@ export default function(termMasterId) {
         ?plaats skos:exactMatch/gn:parentCountry ?land .
         ?land gn:name ?landLabel .
         }
-        GROUP BY ?subcategorie ?landLabel ?subcategorieLabel
+        GROUP BY ?land ?subcategorie ?landLabel ?subcategorieLabel
         ORDER BY DESC(?choCount)
         LIMIT 1000
         `

@@ -1,0 +1,24 @@
+countries = [
+    {
+        name: "Zuid-Afrika",
+        categories: [
+            {
+                label: "wapens",
+                count: 382,
+            },
+            {
+                label: "handdoeken",
+                count: 32,
+            }
+        ]
+    },
+    {
+        name: "Ghana",
+        categories: [
+            {
+                label: "wapens",
+                count: 37,
+            }
+        ]
+    }
+]
