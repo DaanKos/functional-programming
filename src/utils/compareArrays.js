@@ -10,16 +10,14 @@ export default function(results) {
                     country: currentItem.countryLabel,
                     countryGeo: currentItem.countryGeo,
                     mainCategory: currentItem.mainCategory,
-                    objectCount: currentItem.objectCount
+                    objectCountTotal: currentItem.objectCount
                 }
 
                 // Push the new item to the newItems array
                 newItems.push(newItem)
-            } else if (foundItem.objectCount < currentItem.objectCount) {
-                foundItem.country = currentItem.countryLabel,
-                foundItem.countryGeo = currentItem.countryGeo,
-                foundItem.mainCategory = currentItem.mainCategory,
-                foundItem.objectCount = currentItem.objectCount
+            } else {
+                // If the country does exist in the new item array, add current item objectCount to objectCountTotal of that item
+                foundItem.objectCountTotal = foundItem.objectCountTotal + currentItem.objectCount
             }
 
             // Return newItems array

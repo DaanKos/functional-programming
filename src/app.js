@@ -18,7 +18,6 @@ async function runQuery(mainCategory, termMasterId) {
   .then(json => {
     // Put received json in a let
     let results = json.results.bindings;
-    
     // Format the received data
     let formattedData = formatData(mainCategory, results)
 
@@ -30,21 +29,25 @@ async function runQuery(mainCategory, termMasterId) {
   return formattedDataResponse;
 }
 
-async function combineArrays() {
+function combineArrays() {
   let combinedArray = [];
 
   categoryArray.map(categoryItem => {
     combinedArray.push(runQuery(categoryItem.categoryName, categoryItem.termMasterId));
   });
 
-  let mergedArray = Promise.all(combinedArray).then(data => {
+  return Promise.all(combinedArray).then(data => {
     let merged = [].concat.apply([], data);
     console.log("This is merged, logged in the Promise.all: ", merged);
     return merged
   })
-  
-  console.log("This is mergedArray, logged in the combineArrays function: ", mergedArray)
-  return mergedArray;
 }
 
-combineArrays();
+function createFinalArray() {
+  combineArrays().then(result => {
+    let compared = compareArrays(result);
+    console.log(compared);
+  })
+}
+
+createFinalArray();
