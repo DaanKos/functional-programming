@@ -6,8 +6,8 @@ export default function(mainCategory, results) {
                 subCategory: result.subcategorieLabel.value,
                 countryLabel: result.landLabel.value,
                 countryGeo: result.land.value,
-                countryLat: result.lat.value,
-                countryLong: result.long.value,
+                countryLat: Number(result.lat.value),
+                countryLong: Number(result.long.value),
                 objectCount: Number(result.choCount.value)
             }
         }).reduce((newItems, currentItem) => {
