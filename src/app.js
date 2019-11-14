@@ -9,14 +9,11 @@ function createViz() {
     console.log("Can create viz in this function, result is available...");
 
     const svg = select('svg')
-    const circleDelay = 10
-    const circleSize = 8
     const projection = geoNaturalEarth1()
     const pathGenerator = geoPath().projection(projection)
 
     setupMap()
-    drawMap()
-    plotLocations(result)
+    drawMap(result)
 
     function setupMap(){
       svg
@@ -25,17 +22,20 @@ function createViz() {
         .attr('d', pathGenerator({ type: 'Sphere' }))
     }
 
-    function drawMap() {
-      d3.json('https://unpkg.com/world-atlas@1.1.4/world/110m.json').then(data => {
-        const countries = feature(data, data.objects.countries);
-        svg
-          .selectAll('path')
-          .data(countries.features)
-          .enter()
-          .append('path')
-          .attr('class', 'country')
-          .attr('d', pathGenerator)
-      })
+    function drawMap(result) {
+      d3.json('https://unpkg.com/world-atlas@1.1.4/world/110m.json')
+        .then(data => {
+          const countries = feature(data, data.objects.countries);
+          svg
+            .selectAll('path')
+            .data(countries.features)
+            .enter()
+            .append('path')
+            .attr('class', 'country')
+            .attr('d', pathGenerator)
+
+          plotLocations(result)
+        })
     }
 
     function plotLocations(result) {
@@ -53,19 +53,10 @@ function createViz() {
             .attr('cy', function(d) {
               return projection([d.countryLong, d.countryLat])[1]
             })
-            .attr('r', '0px')
+            .attr('r', '8px')
             //Opacity is quite heavy on the rendering process so I've turned it off
             //.attr('opacity', .5)
-            .transition()
-                .delay(function(d, i) { return i * circleDelay; })
-                .duration(1500)
-                .ease(d3.easeBounce)
-                .attr('r', circleSize+'px')
-      
-          }
-
-
-
+    }
   })
 }
 
