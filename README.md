@@ -13,7 +13,7 @@ Dit is mijn repository voor het vak Functional-Programming. Ik heb dit vak gevol
 * [Doelgroep](#doelgroep)
 * [Het concept](#het-concept)
 * [Features](#features)
-* [Gebruikte data & verwerken data](#gebruikte-data-&-verwerken-data)
+* [Gebruikte data & verwerken data](#gebruikte-data--verwerken-data)
 * [Credits](#credits)
 
 ## Link naar de applicatie
@@ -96,7 +96,7 @@ Verder denk ik dat mijn concept eigenlijk meerdere doelgroepen kent. Het is een 
 * Ontdek welke categorie het vaakst voorkomt in ieder land op een wereldkaart en leer meer over wat de verschillende landen op de wereld hebben bijgedragen aan de collectie.
 
 ## Gebruikte data & verwerken data
-In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen. Meer hierover in de wiki op de [SPARQL query](https://github.com/DaanKos/functional-programming/wiki/SPARQL-query) pagina. De opgehaalde data heb ik opgeschoond en getransformeerd met JavaScript, hoe ik dit heb gedaan is te lezen op de  [data ophalen en verwerkend](https://github.com/DaanKos/functional-programming/wiki/Data-ophalen-en-verwerken) pagina in de wiki.
+In de applicatie wordt data opgehaald uit de collectie database van het NMVW. Hiervoor gebruik ik een SPARQL query die objecten ophaalt die aan vooraf opgestelde voorwaarden voldoen. Meer hierover in de wiki op de [SPARQL query](https://github.com/DaanKos/functional-programming/wiki/SPARQL-query) pagina. De opgehaalde data heb ik opgeschoond en getransformeerd met JavaScript, hoe ik dit heb gedaan is te lezen op de  [data ophalen en verwerken](https://github.com/DaanKos/functional-programming/wiki/Data-ophalen-en-verwerken) pagina in de wiki.
 
 ## Credits
 * [Hulp van Kris Kuiper](https://github.com/kriskuiper)
