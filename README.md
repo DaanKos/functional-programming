@@ -3,7 +3,7 @@
 
 Dit is mijn repository voor het vak Functional-Programming. Ik heb dit vak gevolgd van 4-11-2019 t/m 15-11-2019. Het vak is een onderdeel van de tech-track van Information Design in jaar 3 van CMD aan de HvA.
 
-![Aangepast conceptvoorbeeld](https://i.imgur.com/BmB3guS.png)
+![Afbeelding huidige uitwerking concept](https://i.imgur.com/FBgKnYd.png)
 
 ## Inhoud
 * [Link naar de applicatie](#link-naar-de-applicatie)
