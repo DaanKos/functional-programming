@@ -19,7 +19,7 @@ h1, h2 {
 }
 
 .categoryLabel {
-  opacity: .5;
+  opacity: .75;
   font-family: sans-serif;
   font-size: .5em;
 }

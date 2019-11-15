@@ -270,23 +270,7 @@
 
         function plotLocations(result) {
             console.log("This is result in d3: ", result);
-
-            // svg
-            //     .selectAll('circle')
-            //     .data(result)
-            //     .enter()
-            //     .append('circle')
-            //     .attr('class', 'circles')
-            //     .attr('cx', function(d) {
-            //       return projection([d.countryLong, d.countryLat])[0]
-            //     })
-            //     .attr('cy', function(d) {
-            //       return projection([d.countryLong, d.countryLat])[1]
-            //     })
-            //     .attr('r', '8px')
-            //     //Opacity is quite heavy on the rendering process so I've turned it off
-            //     //.attr('opacity', .5)
-
+            
             svg
                 .selectAll('text')
                 .data(result)
@@ -301,8 +285,6 @@
                 })
                 .text(d => d.categoryWithMostObjects.slice(4))
                 .style("text-anchor", "middle");
-                //Opacity is quite heavy on the rendering process so I've turned it off
-                //.attr('opacity', .5)
         }
       });
     }
