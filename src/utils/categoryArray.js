@@ -1,3 +1,6 @@
+// File that contains the necessary categoryNames with their corresponding termMasterId's
+// Gets used to loop through and exectute data retrieval
+
 export default [
     {
         categoryName: "mainPopularCulture",

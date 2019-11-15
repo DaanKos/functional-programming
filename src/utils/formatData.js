@@ -1,3 +1,8 @@
+// Function that formats the given data
+// Uses a parameter to determine what the mainCategory is, and has to be given data (results) which it will format
+// Creates a new object structure for every object in the array
+// Also combines all entries that have the same country property, resulting in an array which shows the amount of objects for the main category
+
 export default function(mainCategory, results) {
     return results
         .map(result => {

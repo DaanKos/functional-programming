@@ -1,3 +1,6 @@
+// Function that runs the query and data retrieval
+// Uses queryCollection to know how the query is set up and uses formatData to format the received data for the first time
+
 import formatData from "./formatData";
 import queryCollection from "./queryCollection";
 

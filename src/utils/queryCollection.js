@@ -1,3 +1,6 @@
+// File that contains the query that's used in runQuery
+// Changes according to the given parameter, which should be the termMasterId for the query
+
 export default function(termMasterId) {
 	return `
         #+ summary: Wapens query - haalt alle aantallen van de wapens subcategorieen op per land

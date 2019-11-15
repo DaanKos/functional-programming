@@ -1,3 +1,6 @@
+// Function that combines the received array's
+// Also calls function runQuery, and uses the categoryArray file to loop through
+
 import runQuery from "./runQuery";
 import categoryArray from "./categoryArray";
 

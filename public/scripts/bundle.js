@@ -1,6 +1,9 @@
 (function (d3, topojson) {
     'use strict';
 
+    // Function that compares the objects in an array, and returns a new, single array
+    // Creates array that contains one object per country, contains the categoryWithMostObjects for this country
+
     function compareArray(results) {
         return results.reduce((newItems, currentItem) => {
             
@@ -32,6 +35,11 @@
             return newItems
         }, [])
     }
+
+    // Function that formats the given data
+    // Uses a parameter to determine what the mainCategory is, and has to be given data (results) which it will format
+    // Creates a new object structure for every object in the array
+    // Also combines all entries that have the same country property, resulting in an array which shows the amount of objects for the main category
 
     function formatData(mainCategory, results) {
         return results
@@ -72,6 +80,9 @@
     		}, [])
     }
 
+    // File that contains the query that's used in runQuery
+    // Changes according to the given parameter, which should be the termMasterId for the query
+
     function queryCollection(termMasterId) {
     	return `
         #+ summary: Wapens query - haalt alle aantallen van de wapens subcategorieen op per land
@@ -103,6 +114,8 @@
         `
         }
 
+    // Function that runs the query and data retrieval
+
     async function runQuery(mainCategory, termMasterId) {
         // The following piece of code was written by user Razpudding (Laurens), from https://codepen.io/Razpudding/pen/LKMbwZ
         // I have edited the code to fit my needs and use my own endpoint
@@ -128,6 +141,9 @@
         // Return formatted data response from the executed fetch
         return formattedDataResponse;
     }
+
+    // File that contains the necessary categoryNames with their corresponding termMasterId's
+    // Gets used to loop through and exectute data retrieval
 
     var categoryArray = [
         {
@@ -208,6 +224,8 @@
         }
       ];
 
+    // Function that combines the received array's
+
     function combineArrays() {
         let combinedArray = [];
       
@@ -235,7 +253,7 @@
 
     function createViz() {
       createFinalArray().then(result => {
-        console.log("Result given to create final array: ", result);
+        console.log("Result given to createViz: ", result);
         console.log("Can create viz in this function, result is available...");
 
         const svg = select('svg');

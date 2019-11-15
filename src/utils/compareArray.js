@@ -1,3 +1,6 @@
+// Function that compares the objects in an array, and returns a new, single array
+// Creates array that contains one object per country, contains the categoryWithMostObjects for this country
+
 export default function(results) {
     return results.reduce((newItems, currentItem) => {
         

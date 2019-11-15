@@ -5,7 +5,7 @@ const { select, geoPath, geoNaturalEarth1 } = d3;
 
 function createViz() {
   createFinalArray().then(result => {
-    console.log("Result given to create final array: ", result);
+    console.log("Result given to createViz: ", result);
     console.log("Can create viz in this function, result is available...");
 
     const svg = select('svg')
