@@ -1,0 +1,28 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+}
+
+.sphere {
+  fill: #c4faff;
+}
+
+.country {
+  fill: #a1ffa7;
+  stroke: black;
+  stroke-opacity: 0.1;
+}
+
+svg {
+  width: 1000px;
+  height: 1000px;
+}
+
+circle {
+  fill: white;
+	stroke: black;
+  stroke-width: .5;
+}
+
+
+  
