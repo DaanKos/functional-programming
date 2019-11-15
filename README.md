@@ -17,7 +17,7 @@ Dit is mijn repository voor het vak Functional-Programming. Ik heb dit vak gevol
 * [Credits](#credits)
 
 ## Link naar de applicatie
-Klik hier om de applicatie te gebruiken/bekijken *(helaas nog niet mogelijk)*
+[Klik hier om de applicatie te gebruiken/bekijken.](https://fervent-bartik-34cd02.netlify.com/)
 
 ## Wiki
 Houd het ontwikkelingsproces bij in de [wiki!](https://github.com/DaanKos/functional-programming/wiki)
