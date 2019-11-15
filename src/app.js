@@ -34,11 +34,11 @@ function createViz() {
             .attr('class', 'country')
             .attr('d', pathGenerator)
 
-          plotLocations(result)
+            plotCategoryPerCountry(result)
         })
     }
 
-    function plotLocations(result) {
+    function plotCategoryPerCountry(result) {
         console.log("This is result in d3: ", result);
         
         svg
