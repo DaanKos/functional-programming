@@ -1,4 +1,4 @@
-# Functional-Programming
+# Functional Programming - 4 november 2019 t/m 15 november 2019
 
 
 Dit is mijn repository voor het vak Functional-Programming. Ik heb dit vak gevolgd van 4-11-2019 t/m 15-11-2019. Het vak is een onderdeel van de tech-track van Information Design in jaar 3 van CMD aan de HvA.
